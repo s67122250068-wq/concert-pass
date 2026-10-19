@@ -2,8 +2,8 @@
 
 เว็บแอปพลิเคชัน React + Vite + Firebase (Realtime Database + Authentication) พัฒนาต่อจากงานที่ 5
 
-- **URL เว็บไซต์ที่ Deploy:** _ใส่ URL หลัง deploy_ (เช่น https://YOUR-PROJECT.web.app)
-- **GitHub Repository:** _ใส่ลิงก์ repo_
+- **URL เว็บไซต์ที่ Deploy:** https://concert-pass.web.app
+- **GitHub Repository:** https://github.com/s67122250068-wq/concert-pass.git
 
 ## ฟังก์ชันที่พัฒนาเสร็จ
 | รหัส | ฟังก์ชัน | หน้า / Component |
@@ -18,20 +18,18 @@
 | F08 | ประวัติการจอง | ETicketPage |
 | F09 | สมัครสมาชิก / เข้าสู่ระบบ / ออกจากระบบ | LoginPage, AuthContext (Firebase Auth) |
 
-## โครงสร้างโฟลเดอร์
+## โครงสร้างโฟลเดอร์ช
 ```
-src/
-  components/{common,features,layout}   # ConcertCard, SeatGrid, Status, Navbar, Layout ...
-  context/AuthContext.jsx               # Firebase Auth state
-  hooks/useAsync.js                     # loading / error / reload
-  pages/                                # 8 หน้า + NotFound
-  routes/AppRoutes.jsx                  # Routing + Protected route
-  services/{firebase,concertService}.js # เชื่อมต่อและเข้าถึง Realtime Database
-  utils/errors.js                       # แปลง error เป็นข้อความไทย + validate อีเมล
+srcsrc/
+components/{common,features,layout}   # ConcertCard, SeatGrid, Status, Navbar, Layout ...
+context/AuthContext.jsx               # Firebase Auth state
+hooks/useAsync.js                     # loading / error / reload
+pages/                                # 8 หน้า + NotFound
+routes/AppRoutes.jsx                  # Routing + Protected route
+services/{firebase,concertService}.js # เชื่อมต่อและเข้าถึง Realtime Database
+utils/errors.js                       # แปลง error เป็นข้อความไทย + validate อีเมล
 firebase/{firebase_data.json,database.rules.json}
 docs/TEST_PLAN.md
-```
-
 ## Routing
 `/` · `/concerts` · `/search?q=` · `/concerts/:id` · `/booking/:id`🔒 · `/favorites`🔒 · `/my-tickets`🔒 · `/login` · `*` (404)  
 🔒 = ต้องเข้าสู่ระบบ (Protected route → redirect ไป `/login` แล้วกลับมาหน้าเดิมหลัง login)
@@ -59,13 +57,12 @@ docs/TEST_PLAN.md
    npm install
    cp .env.example .env     # ใส่ค่า VITE_FIREBASE_* ให้ครบ
    npm run dev              # http://localhost:5173
-   ```
 
 ## Git / GitHub
 ```bash
-git init && git add . && git commit -m "feat: initial React + Firebase project"
+ggit init && git add . && git commit -m "feat: initial React + Firebase project"
 git branch -M main
-git remote add origin https://github.com/<user>/<repo>.git
+git remote add origin [https://github.com/s67122250068-wq/concert-pass.git](https://github.com/s67122250068-wq/concert-pass.git)
 git push -u origin main
 ```
 ควร commit ต่อเนื่องตามงาน เช่น `feat: firebase connection`, `feat: auth + protected routes`, `feat: seat booking`, `fix: ...`  
