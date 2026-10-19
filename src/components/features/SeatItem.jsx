@@ -1,0 +1,1 @@
+export default function SeatItem({seat,selected,onSelect}){const disabled=seat.status==='Booked';return <button className={`seat ${disabled?'booked':''} ${selected?'selected':''}`} disabled={disabled} title={disabled?'ถูกจองแล้ว':`โซน ${seat.zone} ราคา ฿${seat.price}`} onClick={()=>onSelect?.(seat)}>{seat.seat_number}</button>}

@@ -1,0 +1,1 @@
+export default function FavoriteButton({isFavorite=false,onToggle}){return <button className={`favorite ${isFavorite?'active':''}`} aria-pressed={isFavorite} onClick={e=>{e.stopPropagation();onToggle?.()}}>{isFavorite?'♥':'♡'}</button>}

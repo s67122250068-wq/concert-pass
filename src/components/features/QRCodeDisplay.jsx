@@ -1,0 +1,1 @@
+export default function QRCodeDisplay({value='CONCERTPASS'}){const cells=[];let seed=[...value].reduce((a,c)=>a+c.charCodeAt(0),7);for(let i=0;i<121;i++){seed=(seed*9301+49297)%233280;cells.push(seed%3!==0)}return <div className="qr" aria-label={`QR code ${value}`}><div className="qr-grid">{cells.map((x,i)=><i key={i} className={x?'on':''}/>)}</div><small>{value}</small></div>}

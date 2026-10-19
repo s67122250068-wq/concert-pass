@@ -1,0 +1,1 @@
+export default function Footer(){return <footer><div><strong>ConcertPass</strong><span>ระบบจองบัตรคอนเสิร์ตสำหรับโปรเจกต์ Mobile Concert Ticket Booking</span></div><small>© 2026 Group 08 · Demo / Educational Project</small></footer>}
