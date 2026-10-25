@@ -1,9 +1,10 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import UserMenu from './UserMenu';
 
 export default function Navbar() {
   const nav = useNavigate();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   return (
     <header className="navbar">
       <div className="nav-inner">
@@ -14,14 +15,7 @@ export default function Navbar() {
           <NavLink to="/favorites">รายการโปรด</NavLink>
           <NavLink to="/my-tickets">ตั๋วของฉัน</NavLink>
         </nav>
-        {user ? (
-          <div className="user-box">
-            <span>{user.displayName || user.email}</span>
-            <button className="login-btn" onClick={() => logout().then(() => nav('/'))}>ออกจากระบบ</button>
-          </div>
-        ) : (
-          <button className="login-btn" onClick={() => nav('/login')}>เข้าสู่ระบบ</button>
-        )}
+        {user ? <UserMenu /> : <button className="login-btn" onClick={() => nav('/login')}>เข้าสู่ระบบ</button>}
       </div>
     </header>
   );

@@ -17,6 +17,9 @@
 | F07 | รายการโปรด | FavoritesPage, FavoriteButton |
 | F08 | ประวัติการจอง | ETicketPage |
 | F09 | สมัครสมาชิก / เข้าสู่ระบบ / ออกจากระบบ | LoginPage, AuthContext (Firebase Auth) |
+| F10 | เมนูผู้ใช้: ข้อมูลของฉัน, แก้ชื่อ, รูปโปรไฟล์, ตั้งค่า (เปลี่ยนรหัสผ่าน), ออกจากระบบ | UserMenu, AccountPage, SettingsPage |
+| F11 | แบบประเมินระบบ (ใช้งาน 9 ข้อ + พึงพอใจ 10 ข้อ + ข้อเสนอแนะ) บันทึกที่ `evaluations/{uid}` 1 ครั้งต่อบัญชี | EvaluatePage |
+| F12 | หน้าผู้ดูแล `/admin`: ใส่รหัสแอดมินเพื่อดูสรุป x̄/S.D. รายชื่อผู้ประเมิน และดาวน์โหลดคะแนน CSV | AdminPage, adminService |
 
 ## โครงสร้างโฟลเดอร์
 ```
@@ -33,7 +36,7 @@ docs/TEST_PLAN.md
 ```
 
 ## Routing
-`/` · `/concerts` · `/search?q=` · `/concerts/:id` · `/booking/:id`🔒 · `/favorites`🔒 · `/my-tickets`🔒 · `/login` · `*` (404)  
+`/` · `/concerts` · `/search?q=` · `/concerts/:id` · `/booking/:id`🔒 · `/favorites`🔒 · `/my-tickets`🔒 · `/account`🔒 · `/evaluate`🔒 · `/admin`🔒 · `/settings`🔒 · `/login` · `*` (404)  
 🔒 = ต้องเข้าสู่ระบบ (Protected route → redirect ไป `/login` แล้วกลับมาหน้าเดิมหลัง login)
 
 ## โครงสร้างข้อมูล Firebase Realtime Database
@@ -44,7 +47,8 @@ docs/TEST_PLAN.md
 | `seats` | `S001`–`S950` | 50 ที่นั่ง/คอนเสิร์ต (VIP 10, Standard 20, Economy 20); `status` = Available/Booked, `booked_by` |
 | `bookings` | push id | `user_id`, `concert_id`, `seat_ids`, `seat_numbers`, `total_price`, `booking_date`, `payment_status` |
 | `favorites` | `{uid}_{concertId}` | `user_id`, `concert_id`, `created_at` |
-| `users` | `{uid}` | โปรไฟล์ที่สร้างตอนสมัครสมาชิก |
+| `users` | `{uid}` | โปรไฟล์ที่สร้างตอนสมัครสมาชิก (+ `photo` รูปโปรไฟล์) |
+| `evaluations` | `{uid}` | `respondent`, `usability` (U1–U9), `satisfaction` (S1–S10), `comments`, `submitted_at` |
 
 > ข้อมูล `users` U001/U002, `bookings` B001 และ `favorites` FAV001 ใน JSON เป็นข้อมูลตั้งต้นจากงานที่ 5 ผู้ใช้จริงที่สมัครผ่านหน้าเว็บจะใช้ `uid` ของ Firebase Auth
 

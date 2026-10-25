@@ -27,3 +27,53 @@ code{background:#eef0f7;padding:2px 6px;border-radius:6px}
   .categories{grid-template-columns:repeat(3,1fr)}
   .hero{padding:48px 40px}
 }
+
+/* ===== User menu / account / settings ===== */
+.user-menu{position:relative}
+.user-trigger{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #dfe2ea;border-radius:999px;padding:4px 12px 4px 4px;cursor:pointer;font:inherit;color:#151827}
+.user-trigger:hover{background:#f3f4f9}
+.user-name{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+.avatar{border-radius:50%;object-fit:cover;flex:none;display:inline-grid;place-items:center}
+.avatar-text{background:#151827;color:#fff;font-weight:700}
+.menu{position:absolute;right:0;top:calc(100% + 8px);min-width:240px;background:#fff;border:1px solid #e3e5ec;border-radius:14px;box-shadow:0 12px 32px rgba(21,24,39,.14);padding:8px;z-index:50;display:grid;gap:2px}
+.menu-head{display:grid;padding:8px 10px 10px;border-bottom:1px solid #eef0f5;margin-bottom:4px}
+.menu-head small{color:#74798a;overflow:hidden;text-overflow:ellipsis}
+.menu button{text-align:left;background:none;border:0;border-radius:8px;padding:10px;cursor:pointer;font:inherit;color:#151827}
+.menu button:hover{background:#f3f4f9}
+.menu .danger{color:#b42343}
+.menu hr{border:0;border-top:1px solid #eef0f5;margin:4px 0;width:100%}
+.panel{background:#fff;border:1px solid #e3e5ec;border-radius:16px;padding:22px;margin:16px 0;display:grid;gap:14px}
+.panel h2{margin:0;font-size:18px}
+.panel label{display:grid;gap:6px;font-size:14px;color:#555b70}
+.panel input{padding:10px 12px;border:1px solid #cfd3de;border-radius:10px;font:inherit}
+.profile-head{grid-template-columns:auto 1fr;align-items:center;gap:20px}
+.profile-head h2{margin:0 0 2px}
+.profile-head p{margin:0 0 10px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.info-list{margin:0;display:grid;gap:10px}
+.info-list div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #eef0f5;padding-bottom:8px}
+.info-list dt{color:#74798a}.info-list dd{margin:0;font-weight:600;text-align:right;word-break:break-all}
+@media(max-width:800px){.user-name{display:none}.user-trigger{padding-right:8px}.profile-head{grid-template-columns:1fr;justify-items:center;text-align:center}}
+
+/* ===== Evaluation form ===== */
+.panel h3{margin:10px 0 4px;font-size:15px;color:#151827}
+.panel select,.panel textarea{padding:10px 12px;border:1px solid #cfd3de;border-radius:10px;font:inherit;background:#fff}
+.rating-row{padding:10px 12px;border-radius:12px;border:1px solid transparent}
+.rating-row p{margin:0 0 8px}
+.rating-row.missing{border-color:#e0657e;background:#fdf1f4}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{display:block;cursor:pointer}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.scale span{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid #cfd3de;background:#fff;font-weight:700}
+.scale label:hover span{background:#f3f4f9}
+.scale label.on span{background:#151827;color:#fff;border-color:#151827}
+.scale input:focus-visible + span{outline:2px solid #4c6fff;outline-offset:2px}
+.eval-submit{display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;bottom:0;background:#f6f7fb;padding:12px 0}
+
+/* ===== Admin dashboard ===== */
+.admin-bar{margin:12px 0;justify-content:space-between}
+.table-wrap{overflow-x:auto}
+.data-table{width:100%;border-collapse:collapse;font-size:14px}
+.data-table th,.data-table td{border-bottom:1px solid #eef0f5;padding:8px 10px;text-align:left;vertical-align:top}
+.data-table th{background:#f3f4f9;white-space:nowrap}
+.data-table tr.strong td{background:#f7f8fc;font-weight:700}

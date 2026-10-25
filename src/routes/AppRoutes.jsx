@@ -9,6 +9,10 @@ import SeatBookingPage from '../pages/SeatBookingPage';
 import FavoritesPage from '../pages/FavoritesPage';
 import ETicketPage from '../pages/ETicketPage';
 import LoginPage from '../pages/LoginPage';
+import AccountPage from '../pages/AccountPage';
+import SettingsPage from '../pages/SettingsPage';
+import EvaluatePage from '../pages/EvaluatePage';
+import AdminPage from '../pages/AdminPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 // หน้าที่ต้องเข้าสู่ระบบก่อน (จอง / รายการโปรด / ตั๋วของฉัน)
@@ -32,6 +36,10 @@ export default function AppRoutes() {
           <Route path="/booking/:id" element={<Protected><SeatBookingPage /></Protected>} />
           <Route path="/favorites" element={<Protected><FavoritesPage /></Protected>} />
           <Route path="/my-tickets" element={<Protected><ETicketPage /></Protected>} />
+          <Route path="/account" element={<Protected><AccountPage /></Protected>} />
+          <Route path="/settings" element={<Protected><SettingsPage /></Protected>} />
+          <Route path="/evaluate" element={<Protected><EvaluatePage /></Protected>} />
+          <Route path="/admin" element={<Protected><AdminPage /></Protected>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
